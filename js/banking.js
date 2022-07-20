@@ -24,12 +24,21 @@ function deposit() {
 
 
 }
+
+function getMoney(curreentAmount, newAmount) {
+    return Number(curreentAmount) - Number(newAmount);
+}
 function withdraw() {
+    const totalWithdraw = addMoney(withdrawOutput.innerText, withdrawValue.value);
 
+    withdrawOutput.innerText = totalWithdraw;
 
-    withdrawOutput.innerText = Number(withdrawValue.value) + parseFloat(withdrawOutput.innerText);
+    // withdrawOutput.innerText = Number(withdrawValue.value) + parseFloat(withdrawOutput.innerText);
 
-    balanceOutput.innerText = Number(balanceOutput.innerText) - parseFloat(withdrawOutput.innerText);
+    const totalBalance = getMoney(balanceOutput.innerText, withdrawValue.value);
+
+    balanceOutput.innerText = totalBalance;
+
     withdrawValue.value = '';
 
 
